@@ -1,0 +1,101 @@
+# ============================================
+#  个人引导页示例配置（示例数据，由 DeepSeek AI 协助生成）
+#
+#  ⚠️ 请勿直接修改本文件：fork 后请在 GitHub 上自建
+#     links.personal.yml（复制本文件内容后修改），构建时会优先读取
+# ============================================
+
+site:
+  title: "Chihiro"                      # 姓名 / 标题
+  subtitle: "独立开发者 · 学生 · 终身学习者"   # 个性签名
+  avatar: "🧭"                          # 头像: emoji / 文字 / 图片 URL（GitHub 头像可填 https://github.com/用户名.png）
+  status:                               # 状态徽章：单条字符串静态显示；数组则定时轮播；留空 "" 隐藏
+    - "🚀 正在学习 Rust"
+    - "🌱 探索云原生"
+  greeting: ""                          # 问候语，留空则按时间段自动问候
+  about: |-                             # 自我介绍，留空 "" 即隐藏（支持多行）
+    你好，我是 Chihiro 👋
+    喜欢折腾前端、云服务，也收藏各种有趣的小工具。
+    欢迎通过下方链接找到我。
+  analytics: true                       # 访客统计（不蒜子，免费免登录），false 关闭
+  footer: "© 2026 Chihiro"
+  description: "Chihiro 的个人引导页"
+
+# ---- 社交链接（圆形图标按钮）----
+# icon 可选：emoji / 图片 URL；留空自动抓取站点 favicon
+socials:
+  - name: GitHub
+    url: "https://github.com/chihirosyd"
+    icon: "🐙"
+  - name: 博客
+    url: "https://blog.example.com"
+    icon: "📝"
+  - name: Bilibili
+    url: "https://space.bilibili.com"
+    icon: "📺"
+  - name: 邮箱
+    url: "mailto:me@example.com"
+    icon: "📮"
+
+# ---- 项目 / 作品展示 ----
+# icon 可选：emoji / 图片 URL；留空自动抓取站点 favicon（同 socials）
+projects:
+  - name: 引导页
+    url: "https://github.com/chihirosyd/homepage"
+    desc: "单文件个人引导页，数据驱动构建，一键部署 Cloudflare Pages"
+    tags: ["HTML", "Cloudflare Pages"]
+  - name: 项目名称
+    url: "https://github.com/chihirosyd"
+    desc: "一句话介绍你的项目，这里写亮点"
+    tags: ["Vue", "Node.js"]
+
+# ---- 搜索栏（可选：删除整段 search 即隐藏搜索栏）----
+search:
+  placeholder: "搜索点什么…"
+  engines:                          # {q} 为搜索关键词占位符
+    - name: Google
+      url: "https://www.google.com/search?q={q}"
+    - name: Bing
+      url: "https://www.bing.com/search?q={q}"
+    - name: 百度
+      url: "https://www.baidu.com/s?wd={q}"
+
+# ---- 导航收藏（可选：删除整段 nav 即隐藏，胶囊式紧凑区块）----
+nav:
+  groups:
+    - name: 常用
+      links:
+        - name: Bilibili
+          url: "https://www.bilibili.com"
+          desc: "视频"
+        - name: YouTube
+          url: "https://www.youtube.com"
+          desc: "视频"
+        - name: 知乎
+          url: "https://www.zhihu.com"
+          desc: "问答"
+    - name: 开发
+      links:
+        - name: MDN
+          url: "https://developer.mozilla.org"
+          desc: "Web 文档"
+        - name: Stack Overflow
+          url: "https://stackoverflow.com"
+          desc: "技术问答"
+        - name: npm
+          url: "https://www.npmjs.com"
+          desc: "包管理"
+        - name: Cloudflare
+          url: "https://dash.cloudflare.com"
+          desc: "控制台"
+    - name: AI 工具
+      links:
+        - name: ChatGPT
+          url: "https://chatgpt.com"
+          icon: "🤖"
+        - name: Claude
+          url: "https://claude.ai"
+          icon: "✳️"
+        - name: DeepSeek
+          url: "https://chat.deepseek.com"
+          icon: "🐋"

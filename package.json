@@ -1,0 +1,16 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "description": "单文件个人引导页，数据由 links.yml 驱动构建",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
