@@ -4,17 +4,17 @@
 >
 > - 本项目由 DeepSeek AI 协助生成，仅作示例用途
 > - 示例数据（姓名、头像、社交链接、项目等）均为占位内容，请按需修改
-> - **fork 使用方式**：在你的 fork 中自建 `links.personal.yml`（复制 `links.example.yml` 内容后修改），构建时优先读取；请勿直接修改示例配置
+> - **fork 使用方式**：fork 后在 GitHub 网页上自建 `links.personal.yml`（复制 `links.example.yml` 内容后修改），构建时优先读取；该文件不在上游仓库中，同步上游更新不会冲突
 > - 尚未经过真实部署环境验证，部署后请根据实际情况调整配置参数
 > - 部署前建议先在本地预览，并对链接、统计、分享卡片等功能做冒烟测试
 
-> 一个数据驱动的单文件个人引导页（个人名片式主页）：以头像、姓名、签名、状态徽章、社交链接、项目展示为主，导航收藏为可选附属区块。所有内容由 `links.personal.yml`（fork 后自建；示例见 `links.example.yml`）维护，构建生成单文件 `index.html`，推荐部署到 Cloudflare Pages（云端自动构建），也支持任意静态托管。
+> 一个数据驱动的单文件个人引导页（个人名片式主页）：以头像、姓名、签名、状态徽章、社交链接、项目展示为主，导航收藏为可选附属区块。页面内容全部由 `links.personal.yml`（fork 后自建；示例见 `links.example.yml`）驱动，构建时生成单文件 `index.html`。推荐部署到 Cloudflare Pages（云端自动构建，本地无需安装任何软件），也支持任意静态托管。
 
 ## ✨ 特性
 
-- 📄 **单文件**：构建生成单文件 `index.html`（不入库），内嵌全部 CSS / JS / 数据，双击即可打开
+- 📄 **单文件**：构建生成的 `index.html`（不入库）内嵌全部 CSS / JS / 数据，本地构建后双击即可打开
 - 👤 **个人引导页**：大头像 + 姓名 + 签名 + 状态徽章 + 社交按钮 + 项目卡片
-- ⚙️ **配置驱动**：所有内容都在 `links.personal.yml`（或示例 `links.example.yml`）中维护，区块可整体删除隐藏
+- ⚙️ **配置驱动**：所有内容都在 `links.personal.yml` 中维护（结构参考示例 `links.example.yml`），区块可整体删除隐藏
 - 🌓 深色 / 浅色主题（跟随系统 + 手动切换，记忆选择）
 - 🕐 按时段自动问候
 - ⚡ 状态徽章轮播（`status` 支持数组，多条定时切换）
@@ -40,7 +40,9 @@
 
 ## 🚀 快速开始
 
-### 有 Node 环境（推荐）
+两种方式任选其一：本地构建预览（需 Node），或全程云端构建（无需任何本地软件）。
+
+### 有 Node 环境（本地开发）
 
 ```bash
 npm install      # 安装依赖（js-yaml）
@@ -51,10 +53,9 @@ npm run build    # 2. 构建（优先读取 links.personal.yml）
 
 ### 没有 Node 环境
 
-| 方案 | 说明 |
-| --- | --- |
-| **Cloudflare Pages 云端构建** | fork 仓库 → GitHub 网页上新建并编辑 `links.personal.yml` → Pages 连接你的 fork（见下方部署方式一），云端自动构建部署，本地无需安装任何软件 |
-| **应急手改** | 从部署平台下载 `index.html`，编辑其中 `<script type="application/json" id="site-data">` 内的 JSON 后重新上传（⚠️ 下次构建会被覆盖，不推荐） |
+无需安装任何软件：fork 仓库 → 在 GitHub 网页上新建并编辑 `links.personal.yml` → Pages 连接你的 fork（见下方部署方式一），云端自动构建部署。
+
+> ⚠️ 全程只需维护 `links.personal.yml` 一个文件。`index.html` 只是构建产物（本地或云端生成），**请勿手动编辑**——手动修改会在下次构建时被覆盖。
 
 ## 📦 部署方式
 
@@ -67,7 +68,7 @@ npm run build    # 2. 构建（优先读取 links.personal.yml）
 1. **Fork 本仓库**，然后在你的 fork 的 GitHub 网页上**新建 `links.personal.yml`**（复制 `links.example.yml` 的内容，改成你自己的信息）
 2. Pages → **Create a project** → 连接你的 fork 仓库
 3. 框架预设选 **None**，构建命令填 `npm run build`，输出目录填 `/`
-4. 保存并部署。之后每次在 GitHub 网页上编辑 `links.personal.yml` 并提交，Pages 即自动云端构建部署（`index.html` 只在云端生成，仓库中无需保存）
+4. 保存并部署。此后每次在 GitHub 网页上编辑 `links.personal.yml` 并提交，Pages 即自动云端构建部署（`index.html` 只在云端生成，无需入库）
 
 ### 方式二：其他静态托管
 
@@ -102,9 +103,11 @@ npm run build    # 2. 构建（优先读取 links.personal.yml）
 
 ### 隐藏区块
 
-删除配置文件（`links.personal.yml` / `links.example.yml`）中对应配置段即可：`search`（搜索栏）、`nav`（导航收藏）、`socials`（社交按钮）、`projects`（项目卡片）、`status`/`about`（置空隐藏）。
+删除配置文件中对应配置段即可：`search`（搜索栏）、`nav`（导航收藏）、`socials`（社交按钮）、`projects`（项目卡片）、`status`/`about`（置空隐藏）。
 
-## 📝 配置说明（links.personal.yml / links.example.yml）
+## 📝 配置说明
+
+以下以 `links.example.yml` 为例，你的 `links.personal.yml` 结构与之完全相同。
 
 页面自上而下：Hero（头像/姓名/签名/状态）→ 社交 → 搜索 → 关于 → 项目 → 导航 → 页脚。
 **每个区块都是可选的**：删除对应配置段即可隐藏。
@@ -166,6 +169,9 @@ A：直接删除 `links.personal.yml` 中对应配置段（`search` / `nav`）�
 
 **Q：Pages 构建失败？**
 A：确认仓库根目录包含 `package.json`，构建命令为 `npm run build`、输出目录为 `/`；查看 Pages 部署日志定位具体错误。
+
+**Q：Cloudflare Pages 有构建次数限制吗？**
+A：免费版每月 500 次构建，每次提交 `links.personal.yml` 消耗一次，个人使用绰绰有余；构建失败时旧版本保持在线，不影响已部署页面。
 
 ## 💡 提示
 

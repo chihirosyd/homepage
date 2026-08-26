@@ -1,8 +1,8 @@
 <!--
   页面模板源文件 template.html
   数据占位符（__DATA__/__TITLE__/__DESC__/__IMAGE__/__FAVICON__）由 build.mjs 构建时替换。
-  构建产物 index.html 已替换占位符，可双击直接打开。
-  修改内容：数据在 links.yml，样式在本文件。
+  构建产物 index.html（不入库）已替换占位符，可双击直接打开。
+  修改内容：数据在 links.personal.yml / links.example.yml，样式在本文件。
 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -177,7 +177,7 @@ function iconHtml(l){
   var icon=l.icon||"";
   if(/^https?:\/\//.test(icon)){return '<img src="'+esc(icon)+'" alt="">'}
   if(icon){return '<span class="letter">'+esc(icon)+'</span>'}
-  return '<span class="letter">'+esc((l.name||"?").charAt(0).toUpperCase())+'</span><img class="auto" alt="" data-domain="'+esc(hostOf(l.url))+'">'
+  return '<span class="letter">'+esc(Array.from(l.name||"?")[0].toUpperCase())+'</span><img class="auto" alt="" data-domain="'+esc(hostOf(l.url))+'">'
 }
 // ---- 基本信息 ----
 document.title=site.title||"个人引导页";

@@ -1,6 +1,9 @@
 node_modules/
 .DS_Store
 
+# 依赖锁文件（不提交，构建平台自动 npm install）
+package-lock.json
+
 # 构建产物（本地 npm run build 生成，不入库）
 index.html
 
