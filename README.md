@@ -1,14 +1,30 @@
 # 🧭 个人引导页
 
+[![Deploy to Cloudflare Pages](https://img.shields.io/badge/Deploy%20to-Cloudflare%20Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://dash.cloudflare.com/pages)
+[![Node](https://img.shields.io/badge/Node-%E2%89%A5%2018-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+
+*点击上方部署按钮可跳转 Cloudflare Pages 控制台，登录后按「部署方式一」的步骤配置。*
+
 > ⚠️ **示例项目说明**
 >
 > - 本项目由 DeepSeek AI 协助生成，仅作示例用途
 > - 示例数据（姓名、头像、社交链接、项目等）均为占位内容，请按需修改
 > - **fork 使用方式**：fork 后在 GitHub 网页上自建 `links.personal.yml`（复制 `links.example.yml` 内容后修改），构建时优先读取；该文件不在上游仓库中，同步上游更新不会冲突
-> - 尚未经过真实部署环境验证，部署后请根据实际情况调整配置参数
-> - 部署前建议先在本地预览，并对链接、统计、分享卡片等功能做冒烟测试
+> - **隐私设计**：个人真实数据只存放在你自己的 fork 中，上游仓库不含任何私人信息
+> - 尚未经过真实部署环境验证，部署前建议先在本地预览，并对链接、统计、分享卡片等功能做冒烟测试
 
-> 一个数据驱动的单文件个人引导页（个人名片式主页）：以头像、姓名、签名、状态徽章、社交链接、项目展示为主，导航收藏为可选附属区块。页面内容全部由 `links.personal.yml`（fork 后自建；示例见 `links.example.yml`）驱动，构建时生成单文件 `index.html`。推荐部署到 Cloudflare Pages（云端自动构建，本地无需安装任何软件），也支持任意静态托管。
+一个数据驱动的单文件个人引导页（个人名片式主页）：以头像、姓名、签名、状态徽章、社交链接、项目展示为主，导航收藏为可选附属区块。页面内容全部由 `links.personal.yml`（fork 后自建；示例见 `links.example.yml`）驱动，构建时生成单文件 `index.html`。推荐部署到 Cloudflare Pages（云端自动构建，本地无需安装任何软件），也支持任意静态托管。
+
+## 📑 目录
+
+- [✨ 特性](#特性)
+- [📁 项目结构](#项目结构)
+- [🚀 快速开始](#快速开始)
+- [📦 部署方式](#部署方式)
+- [🎨 个性化定制](#个性化定制)
+- [📝 配置说明](#配置说明)
+- [❓ 常见问题](#常见问题)
+- [💡 提示](#提示)
 
 ## ✨ 特性
 
@@ -66,7 +82,7 @@ npm run build    # 2. 构建（优先读取 links.personal.yml）
 ### 方式一：Cloudflare Pages（推荐，本地无需 Node）
 
 1. **Fork 本仓库**，然后在你的 fork 的 GitHub 网页上**新建 `links.personal.yml`**（复制 `links.example.yml` 的内容，改成你自己的信息）
-2. Pages → **Create a project** → 连接你的 fork 仓库
+2. [Pages](https://dash.cloudflare.com/pages) → **Create a project** → 连接你的 fork 仓库
 3. 框架预设选 **None**，构建命令填 `npm run build`，输出目录填 `/`
 4. 保存并部署。此后每次在 GitHub 网页上编辑 `links.personal.yml` 并提交，Pages 即自动云端构建部署（`index.html` 只在云端生成，无需入库）
 
@@ -160,6 +176,9 @@ A：`file://` 协议下网络功能受限（favicon 跨域请求、统计脚本�
 
 **Q：改了 `links.personal.yml` 但页面没变化？**
 A：忘记重新 `npm run build`；或部署后浏览器/CDN 缓存（稍等片刻或强制刷新）。
+
+**Q：fork 之后同步上游更新，会和我改过的内容冲突吗？**
+A：不会。你的个人数据在 `links.personal.yml` 中，而该文件不在上游仓库里——同步上游只会更新示例配置、模板和构建脚本，互不干扰。
 
 **Q：分享到社交软件没有预览卡片？**
 A：Open Graph 标签已构建时注入，确认部署后的页面 head 中存在 `og:title`；`og:image` 需要 `avatar` 为图片 URL（emoji 头像无预览图）。
