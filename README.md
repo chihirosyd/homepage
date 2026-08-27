@@ -139,7 +139,7 @@ site:
   about: |-                     # 自我介绍，留空隐藏（| 支持多行）
     你好，我是 Chihiro 👋
   analytics: true               # 访客统计（不蒜子），false 关闭
-  footer: "© 2026 Chihiro"
+  footer: "Chihiro"           # 可选：页脚自定义文案；模板会自动附加「由 homepage 模板驱动」署名链接
   description: "个人引导页"      # SEO 描述（用于 meta description 与 og:description）
 
 socials:                        # 社交按钮（圆形图标）

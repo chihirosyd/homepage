@@ -133,6 +133,8 @@ footer{
   position:relative;z-index:1;text-align:center;padding:20px 0 34px;margin-top:56px;
   font-size:13px;color:var(--muted);border-top:1px solid var(--border);
 }
+footer a{color:inherit;text-decoration:none;border-bottom:1px dashed var(--border);transition:color .15s,border-color .15s}
+footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 @media (max-width:640px){
   .hero{padding-top:64px}
   .projects{grid-template-columns:1fr}
@@ -299,9 +301,11 @@ document.addEventListener("keydown",function(e){
     e.preventDefault();$("query").focus()
   }
 });
-var footerHtml=site.footer||"";
+var footerCredit='© '+new Date().getFullYear()+' · 由 <a href="https://github.com/chihirosyd/homepage" target="_blank" rel="noopener noreferrer">homepage</a> 模板驱动';
+var footerHtml=(site.footer?site.footer+' · ':'')+footerCredit;
 if(site.analytics){
-  footerHtml+=' <span id="busuanzi_container_site_pv" style="display:none"> · 访问 <span id="busuanzi_value_site_pv"></span> 次</span>';
+  footerHtml+=' <span id="busuanzi_container_site_pv" style="display:none"> · 访问 <span id="busuanzi_value_site_pv"></span> 次</span>'
+            +' <span id="busuanzi_container_site_uv" style="display:none"> · <span id="busuanzi_value_site_uv"></span> 位访客</span>';
   var bs=document.createElement("script");
   bs.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
   bs.async=true;

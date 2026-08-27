@@ -18,7 +18,7 @@ site:
     喜欢折腾前端、云服务，也收藏各种有趣的小工具。
     欢迎通过下方链接找到我。
   analytics: true                       # 访客统计（不蒜子，免费免登录），false 关闭
-  footer: "© 2026 Chihiro"
+  footer: "Chihiro"                   # 页脚自定义文案（可选）：模板会自动附加署名链接
   description: "Chihiro 的个人引导页"
 
 # ---- 社交链接（圆形图标按钮）----
